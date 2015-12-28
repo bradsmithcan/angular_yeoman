@@ -1,0 +1,54 @@
+<div layout="row" layout-align="center start" class="main-container">
+    <div class="container">
+        <md-content layout-align="center start">
+            <form ng-submit="saveGroup()">
+                <div layout="row">
+                    <div layout="column" flex="45" class="group-form">
+                        <md-input-container>
+                            <label>{{'NAME' | translate}}</label>
+                            <input ng-model="group.name" required>
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>{{'DESCRIPTION' | translate}}</label>
+                            <input ng-model="group.description">
+                        </md-input-container>
+
+                        <div layout="row">
+                            <md-input-container flex>
+                                <div class="hint">{{'GROUP_ADD_EMAIL_HINT' | translate}}</div>
+                                <label>{{'EMAIL_ADDRESSES' | translate}}</label>
+                                <input ng-model="participantEmailAddresses" ng-list>
+                            </md-input-container>
+                            <md-button class="md-raised md-primary" ng-click="addParticipants()">{{'ADD' | translate}}
+                            </md-button>
+                        </div>
+                    </div>
+
+                    <div flex></div>
+
+                    <div layout="column" flex="45" class="group-form">
+                        <md-list>
+                            <md-list-item ng-repeat="participant in group.participants">
+                                <md-input-container>
+                                    <label>{{'NAME' | translate}}</label>
+                                    <input ng-model="participant.name">
+                                </md-input-container>
+
+                                <md-input-container>
+                                    <label>{{'EMAIL_ADDRESS' | translate}}</label>
+                                    <input ng-model="participant.email" type="email" required>
+                                </md-input-container>
+                                <md-icon class="md-secondary" ng-click="removeParticipant(participant)">delete</md-icon>
+                            </md-list-item>
+                        </md-list>
+                    </div>
+                </div>
+                <div layout="row" layout-align="center start" class="margin-top-container">
+                    <md-button class="md-raised" ng-click="deleteGroup()">{{'DELETE' | translate}}</md-button>
+                    <md-button type="submit" class="md-raised md-primary">{{'SAVE' | translate}}</md-button>
+                </div>
+            </form>
+        </md-content>
+    </div>
+</div>

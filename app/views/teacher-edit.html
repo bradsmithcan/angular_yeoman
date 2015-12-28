@@ -1,0 +1,41 @@
+<div layout="row" layout-align="center start" class="main-container">
+    <div class="container">
+        <md-content layout layout-align="center start">
+            <form name="teacherForm" ng-submit="saveTeacher()" layout="column" flex="45" class="teacher-form">
+                <md-input-container>
+                    <label>{{'FIRST_NAME' | translate}}</label>
+                    <input ng-model="teacher.data.firstName" required>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>{{'PREFIX' | translate}}</label>
+                    <input ng-model="teacher.data.prefix">
+                </md-input-container>
+
+                <md-input-container>
+                    <label>{{'LAST_NAME' | translate}}</label>
+                    <input ng-model="teacher.data.lastName" required>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>{{'CODE' | translate}}</label>
+                    <input ng-model="teacher.data.code" required>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>{{'EMAIL_ADDRESS' | translate}}</label>
+                    <input ng-model="teacher.data.emailAddress" type="email" required>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>{{'PHONE_NUMBER' | translate}}</label>
+                    <input ng-model="teacher.data.phoneNumber">
+                </md-input-container>
+
+                <div layout="row" layout-align="center start" class="margin-top-container">
+                    <md-button type="submit" class="md-raised md-primary">{{'SAVE' | translate}}</md-button>
+                </div>
+            </form>
+        </md-content>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div layout="row" layout-align="center start" class="main-container">
+    <div class="container">
+        <md-content layout-align="center start">
+            <form ng-submit="saveQuestionSet()">
+                <div layout="row">
+                    <div layout="column" flex="45" class="question-set-form">
+                        <md-input-container>
+                            <label>{{'NAME' | translate}}</label>
+                            <input ng-model="questionSet.name" required>
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>{{'DESCRIPTION' | translate}}</label>
+                            <input ng-model="questionSet.description" required>
+                        </md-input-container>
+                    </div>
+
+                    <div flex></div>
+
+                    <div layout="column" flex="45" class="question-set-form">
+
+                    </div>
+                </div>
+
+                <div layout="column" class="margin-top-container">
+                    <div ng-repeat="question in questionSet.questions" layout="row" layout-align="start center">
+                        <div layout="row" flex>
+                            {{question.locale}}
+                            <md-input-container flex>
+                                <label>{{'QUESTION' | translate}}</label>
+                                <input ng-model="question.question" required>
+                            </md-input-container>
+
+                            <md-input-container>
+                                <label>{{'SCALE' | translate}}</label>
+                                <md-select ng-model="question.scale" ng-change="selectScale(scale)">
+                                    <md-option ng-repeat="scale in questionScales | filter:{locale: question.locale}" value="{{scale.scaleId}}">
+                                        {{ scale.name }}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+
+                            <md-input-container>
+                                <label>{{'TYPE' | translate}}</label>
+                                <md-select ng-model="question.type" ng-change="selectType(type)">
+                                    <md-option ng-repeat="type in types" value="{{type}}">
+                                        {{ TYPE }}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+
+                        <md-icon class="md-secondary" ng-click="removeQuestion(question)">delete</md-icon>
+                    </div>
+                </div>
+
+                <div layout="row" layout-align="center start" class="margin-top-container">
+                    <md-button type="submit" class="md-raised md-primary">{{'SAVE' | translate}}</md-button>
+                </div>
+            </form>
+        </md-content>
+    </div>
+</div>

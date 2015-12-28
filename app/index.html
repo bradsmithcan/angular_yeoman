@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- TODO: Remove this stylesheet and override the pagination by hand. -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="lib/bootstrap-pagination.css"/>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body ng-app="evalyticsApp" ng-cloak>
+<!--[if lte IE 8]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<md-toolbar layout-align="start center" ng-controller="ToolbarCtrl">
+    <div class="md-toolbar-tools container">
+        <h2>
+            <span>{{'EVALYTICS' | translate}}</span>
+        </h2>
+        <span flex></span>
+        <md-menu md-position-mode="target-right target">
+            <md-button aria-label="Open options menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                <md-icon>settings</md-icon>
+            </md-button>
+            <md-menu-content>
+                <md-menu-item ng-repeat="item in [1, 2, 3]">
+                    <md-button>
+                        <p flex>Option {{item}}</p>
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </div>
+
+    <md-tabs class="toolbar-tabs container" md-no-ink-bar="true" md-selected="selectedTab">
+        <md-tab label="{{'TEACHERS' | translate}}" ui-sref="teachers"></md-tab>
+        <md-tab label="{{'SUBJECTS' | translate}}" ui-sref="subjects"></md-tab>
+        <md-tab label="{{'EVALUATIONS' | translate}}" ui-sref="evaluations"></md-tab>
+        <md-tab label="{{'GROUPS' | translate}}" ui-sref="groups"></md-tab>
+        <md-tab label="{{'QUESTION_SETS' | translate}}" ui-sref="questionSets"></md-tab>
+    </md-tabs>
+</md-toolbar>
+
+<div ui-view=""></div>
+
+<div class="footer">
+    <div class="container">
+    </div>
+</div>
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<!--<script>-->
+<!--!function (A, n, g, u, l, a, r) {-->
+<!--A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {-->
+<!--(A[l].q = A[l].q || []).push(arguments)-->
+<!--}, A[l].l = +new Date, a = n.createElement(g),-->
+<!--r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)-->
+<!--}(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');-->
+
+<!--ga('create', 'UA-XXXXX-X');-->
+<!--ga('send', 'pageview');-->
+<!--</script>-->
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/angular-translate/angular-translate.js"></script>
+<script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/teachers.js"></script>
+<script src="scripts/controllers/teacher.js"></script>
+<script src="scripts/services/api.js"></script>
+<script src="scripts/controllers/teacherEdit.js"></script>
+<script src="scripts/controllers/subjects.js"></script>
+<script src="scripts/controllers/evaluations.js"></script>
+<script src="scripts/services/evaconfig.js"></script>
+<script src="scripts/controllers/subjectedit.js"></script>
+<script src="scripts/controllers/subject.js"></script>
+<script src="scripts/controllers/toolbar.js"></script>
+<script src="scripts/controllers/evaluationedit.js"></script>
+<script src="scripts/controllers/evaluation.js"></script>
+<script src="scripts/controllers/groupedit.js"></script>
+<script src="scripts/controllers/groups.js"></script>
+<script src="scripts/controllers/questionSets.js"></script>
+<script src="scripts/controllers/questionsetedit.js"></script>
+<!-- endbuild -->
+
+<script src="scripts/tools.js"></script>
+<script src="lib/ui-bootstrap-custom-tpls-0.14.3.min.js"></script>
+</body>
+</html>

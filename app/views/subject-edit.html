@@ -1,0 +1,402 @@
+<style>
+
+  body {
+    height: auto;
+  }
+
+  .main-container-custom {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 2, 2, 0.85);
+    z-index: 1000;
+    top: 0;
+    left: 0;
+  }
+
+  #loading {
+    -webkit-animation-name: rotateThis;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+  }
+
+  @-webkit-keyframes rotateThis {
+    from {
+      -webkit-transform: scale(0.5) rotate(0deg);
+    }
+    to {
+      -webkit-transform: scale(0.5) rotate(360deg);
+    }
+  }
+
+  .a1 {
+    position: absolute;
+    z-index: 1;
+    bottom: 4px;
+    left: 0;
+    right: auto;
+    color: rgba(0, 0, 0, 0.26);
+    font-size: 16px;
+    transition: all 0.2s;
+    transition-delay: 0s;
+  }
+
+  md-list-item > md-checkbox, md-list-item .md-list-item-inner > md-checkbox {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .a1.active-ng {
+    transform: translate3d(-14px, -40px, 0) scale(0.75);
+  }
+
+  .a1.active {
+    transform: translate3d(-14px, -40px, 0) scale(0.75);
+    color: rgb(33, 150, 243);
+  }
+
+  #input-12 {
+    position: relative;
+    z-index: 2;
+  }
+
+  md-chips:focus ~ .a1 {
+    color: red;
+  }
+
+  md-list .md-subheader {
+    text-align: center;
+  }
+
+  md-checkbox .md-container {
+    left: 50%;
+    margin-left: -10px;
+  }
+
+  .layout-row md-list .md-subheader:first-child {
+    text-align: left;
+  }
+
+  md-checkbox {
+    margin-top: 16px;
+  }
+
+  .md-list-item-text {
+    margin: 6px 0 0 0 !important;
+  }
+
+  .md-list-item-text .md-avatar {
+    margin: 0 6px 0 0 !important;
+  }
+
+  md-list-item .md-list-item-inner, md-list md-list-item {
+    min-height: 52px !important;
+    transition: all 0.6s;
+  }
+
+  .teachers {
+    padding: 16px;
+    margin: 10px 0;
+  }
+
+  .teachers:hover {
+    background-color: #BBDEFB;
+  }
+
+  md-icon {
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+  }
+
+  .teachers:hover md-icon {
+    color: #fff;
+  }
+
+  md-checkbox.md-checked .md-icon {
+    background: #2095F2;
+  }
+
+  md-checkbox.md-default-theme.md-checked .md-icon:after, md-checkbox.md-checked .md-icon:after {
+    border-color: #ffffff;
+  }
+
+  md-checkbox.md-default-theme.md-checked .md-ink-ripple, md-checkbox.md-checked .md-ink-ripple {
+    color: #2095F2;
+  }
+
+  md-checkbox.md-default-theme .md-ink-ripple, md-checkbox .md-ink-ripple {
+    color: #2095F2;
+  }
+
+  .loading {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 50px);
+    z-index: 10000000000;
+    width: 100px;
+    height: 100px;
+    -moz-border-radius: 100px;
+    -moz-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+  }
+
+  .loading div {
+    width: 10px;
+    height: 30px;
+    background: #fff;
+    position: absolute;
+    top: 35px;
+    left: 45px;
+  }
+
+  .bar1 {
+    -moz-transform: rotate(0deg) translate(0, -40px);
+    -webkit-transform: rotate(0deg) translate(0, -40px);
+    opacity: 0.12;
+  }
+
+  .bar2 {
+    -moz-transform: rotate(45deg) translate(0, -40px);
+    -webkit-transform: rotate(45deg) translate(0, -40px);
+    opacity: 0.25;
+  }
+
+  .bar3 {
+    -moz-transform: rotate(90deg) translate(0, -40px);
+    -webkit-transform: rotate(90deg) translate(0, -40px);
+    opacity: 0.37;
+  }
+
+  .bar4 {
+    -moz-transform: rotate(135deg) translate(0, -40px);
+    -webkit-transform: rotate(135deg) translate(0, -40px);
+    opacity: 0.50;
+  }
+
+  .bar5 {
+    -moz-transform: rotate(180deg) translate(0, -40px);
+    -webkit-transform: rotate(180deg) translate(0, -40px);
+    opacity: 0.62;
+  }
+
+  .bar6 {
+    -moz-transform: rotate(225deg) translate(0, -40px);
+    -webkit-transform: rotate(225deg) translate(0, -40px);
+    opacity: 0.75;
+  }
+
+  .bar7 {
+    -moz-transform: rotate(270deg) translate(0, -40px);
+    -webkit-transform: rotate(270deg) translate(0, -40px);
+    opacity: 0.87;
+  }
+
+  .bar8 {
+    -moz-transform: rotate(315deg) translate(0, -40px);
+    -webkit-transform: rotate(315deg) translate(0, -40px);
+    opacity: 1;
+  }
+</style>
+<div ng-class="{'loading' : hideClass}">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+  <div class="bar4"></div>
+  <div class="bar5"></div>
+  <div class="bar6"></div>
+  <div class="bar7"></div>
+  <div class="bar8"></div>
+</div>
+<div ng-class="{'main-container-custom' : hideClass}"></div>
+<div layout="row" layout-align="center start" class="main-container">
+  <div class="container">
+    <md-content layout-align="center start">
+      <form name="subjectForm" ng-submit="saveSubject()">
+
+        <p class="md-title">{{'NAME' | translate}}&{{'CODE' | translate}}</p>
+        <div layout-gt-sm="">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>{{'NAME' | translate}}</label>
+            <input ng-model="subject.data.name" required>
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>{{'CODE' | translate}}</label>
+            <input ng-model="subject.data.code" required>
+          </md-input-container>
+
+        </div>
+        <p class="md-title">{{'TYPELABEL' | translate}}</p>
+        <div style="position: relative">
+          <md-chips
+            ng-model="subject.data.types"
+            md-autocomplete-snap
+            md-require-match="true"
+            ng-click="selectCourse($event, subject.data.types)">
+            <md-autocomplete
+              md-selected-item="ctrl.selectedItem"
+              md-search-text="ctrl.searchText"
+              md-items="item in subjectTypes"
+              md-selected-item-change="blabla(item)"
+              md-min-length="0">
+              <span md-highlight-text="ctrl.searchText">{{item.name}}</span>
+            </md-autocomplete>
+            <button md-chip-remove class="md-primary md-chip-remove" ng-click="tagDeleted($chip)"> <md-icon md-svg-icon="md-close"></md-icon> </button>
+
+            <md-chip-template>
+                <span>
+                  <strong class="chip">{{getSubjectTypeTranslation($chip.name)}}</strong>
+                </span>
+            </md-chip-template>
+          </md-chips>
+          <label class="a1" ng-class="{ 'active-ng' :subject.data.types.length }">Add course type</label>
+        </div>
+
+        <!--<div layout="row">-->
+        <!--<div layout="column" flex="100">-->
+        <!--&lt;!&ndash; TODO: This isn't working that well.-->
+        <!--The whole object is being bound to the model instead of the id only.-->
+        <!--Refactor needed since this issue is also unsolved on GitHub.&ndash;&gt;-->
+        <!--<label>{{'TYPELABEL' | translate}}</label>-->
+        <!--<md-chips ng-model="subject.data.types" md-require-match="true" md-autocomplete-snap>-->
+        <!--<md-autocomplete-->
+        <!--md-selected-item="ctrl.selectedItem"-->
+        <!--md-search-text="ctrl.searchText"-->
+        <!--md-items="item in subjectTypes"-->
+        <!--md-min-length="0"-->
+        <!--placeholder="Add course type">-->
+        <!--<span md-highlight-text="ctrl.searchText">{{item.name}}</span>-->
+        <!--</md-autocomplete>-->
+        <!--<md-chip-template>-->
+        <!--<span>-->
+        <!--<strong>{{getSubjectTypeTranslation($chip.name)}}</strong>-->
+        <!--</span>-->
+        <!--</md-chip-template>-->
+        <!--</md-chips>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div layout="row" class="margin-top-container" id="checkboxList">
+          <div layout="column" flex="100">
+            <md-input-container>
+              <label>{{'SELECT_YEAR' | translate}}</label>
+              <md-select ng-model="gradeId" ng-change="selectGrade(gradeId)">
+                <md-option ng-repeat="grade in grades" value="{{$index + 1 }}">
+                  Study year {{$index + 1 }}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            <!--<pre>{{subject.data.grades | json}}</pre>-->
+            <md-list ng-if="subject.data.grades.length > 0">
+              <div style="padding:16px;">
+                <div layout="row">
+                  <div flex class="md-subheader">
+                    {{'GRADE' | translate}}
+                  </div>
+                  <div flex class="md-subheader">
+                    Teaching period 1
+                  </div>
+                  <div flex class="md-subheader">
+                    Teaching period 2
+                  </div>
+                  <div flex class="md-subheader">
+                    Teaching period 3
+                  </div>
+                  <div flex class="md-subheader">
+                    Periode 4
+                  </div>
+                </div>
+              </div>
+              <md-list-item ng-repeat="grade in subject.data.grades">
+                <p>{{$index + 1}}</p>
+                <md-checkbox aria-label="Period 1" flex ng-click="togglePeriod(grade.id, 1)"></md-checkbox>
+                <md-checkbox aria-label="Period 2" flex ng-click="togglePeriod(grade.id, 2)"></md-checkbox>
+                <md-checkbox aria-label="Period 3" flex ng-click="togglePeriod(grade.id, 3)"></md-checkbox>
+                <md-checkbox aria-label="period 4" flex ng-click="togglePeriod(grade.id, 4)"></md-checkbox>
+                <md-icon class="md-secondary" ng-click="removeGrade(grade.id)">delete</md-icon>
+              </md-list-item>
+            </md-list>
+          </div>
+        </div>
+
+        <md-autocomplete
+
+          md-selected-item="selectedTeacher"
+          md-search-text="teacherSearch"
+          md-selected-item-change="selectTeacher(teacher.id)"
+          md-items="teacher in searchTeacher(teacherSearch) | orderBy:'data.lastName'"
+          md-item-text="teacher.name"
+          md-min-length="0"
+          placeholder="What is your favorite US state?"
+          md-floating-label="{{'SELECT_TEACHER' | translate}}">
+          <md-item-template>
+            <span md-highlight-text="teacherSearch">{{teacher.name}} ({{teacher.data.code}})</span>
+          </md-item-template>
+        </md-autocomplete>
+
+        <md-list ng-if="subject.data.teachers.length > 0">
+          <div class="teacher_title" style="padding:16px 0 0 0;">
+            <div layout="row">
+              <div class="md-subheader" flex="30">
+                {{'TEACHER' | translate}}
+              </div>
+              <div flex class="md-subheader">
+                {{'SUBJECT_COORDINATOR_ABBR' | translate}}
+              </div>
+
+              <div flex class="md-subheader">
+                {{'GUEST_TEACHER' | translate}}
+              </div>
+
+              <div flex class="md-subheader" ng-repeat="type in subject.data.types">
+                {{type.name | uppercase | translate }}
+              </div>
+            </div>
+          </div>
+
+          <md-list-item layout="row" class="md-2-line teachers"
+                        ng-repeat="teacher in subject.data.teachers | orderBy:'data.lastName'">
+
+            <div class="md-list-item-text" style="display: inline-block; flex: 0 1 30%">
+              <div style="display: inline-block">
+                <img ng-src="http://lorempixel.com/100/100/cats/" class="md-avatar"/>
+              </div>
+              <div style="display: inline-block">
+                <h3>{{ teacher.name}}</h3>
+                <p>{{ teacher.data.code }}</p>
+              </div>
+
+            </div>
+            <div ng-repeat="v in [0]" flex layout>
+              <md-checkbox class="green" flex aria-label="Subject coordinator" ng-checked="isCoordinator(teacher.id)"
+                           ng-click="toggleCoordinator(teacher.id)"></md-checkbox>
+            </div>
+            <div ng-repeat="v in [0]" flex layout>
+              <md-checkbox flex aria-label="Guest teacher" ng-checked="isGuestTeacher(teacher.id)"
+                           ng-click="toggleGuestTeacher(teacher.id)"></md-checkbox>
+            </div>
+            <div ng-repeat="type in subject.data.types" flex layout>
+              <md-checkbox flex aria-label="{{type.name}}" ng-checked="isTypeSelected(teacher.id, type)"
+                           ng-click="toggleType(teacher.id, type)"></md-checkbox>
+            </div>
+            <md-icon class="md-secondary" ng-click="removeTeacher(teacher.id)">delete</md-icon>
+          </md-list-item>
+        </md-list>
+        <div layout="row" layout-align="center start" class="margin-top-container">
+          <md-button type="submit" class="md-raised md-primary">{{'SAVE' | translate}}</md-button>
+        </div>
+      </form>
+    </md-content>
+    <pre style="height: auto;
+    max-height: 500px;
+    width: 100%;
+    overflow: auto;
+    background-color: #eeeeee;
+    word-break: normal !important;
+    word-wrap: normal !important;
+    white-space: pre !important;">
+    {{ subject | json}}
+    </pre>
+  </div>
+</div>

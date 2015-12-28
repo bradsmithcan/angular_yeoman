@@ -1,0 +1,36 @@
+<div layout="row" layout-align="center start" class="main-container">
+    <div class="container">
+        <md-content layout-align="center start">
+            <form name="subjectForm" ng-submit="saveEvaluation()">
+                <div layout="row">
+                    <div layout="column" flex="45" class="subject-form">
+                        <md-input-container>
+                            <label>{{'NAME' | translate}}</label>
+                            <input ng-model="evaluation.name" required>
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>{{'DESCRIPTION' | translate}}</label>
+                            <input ng-model="evaluation.description" required>
+                        </md-input-container>
+
+                        <div layout="row" layout-align="start center">
+                            <md-datepicker ng-model="evaluation.startDate" md-placeholder="{{'START_DATE' | translate}}"></md-datepicker>
+                            <span>t/m</span>
+                            <md-datepicker ng-model="evaluation.endDate" md-placeholder="{{'END_DATE' | translate}}"></md-datepicker>
+                        </div>
+                    </div>
+
+                    <div flex></div>
+
+                    <div layout="column" flex="45" class="subject-form">
+
+                    </div>
+                </div>
+                <div layout="row" layout-align="center start" class="margin-top-container">
+                    <md-button type="submit" class="md-raised md-primary">{{'SAVE' | translate}}</md-button>
+                </div>
+            </form>
+        </md-content>
+    </div>
+</div>

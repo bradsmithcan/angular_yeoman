@@ -1,0 +1,42 @@
+<div layout="row" layout-align="center start" class="md-whiteframe-1dp search-container">
+    <div class="container">
+        <div layout="row" layout-align="start center">
+            <md-icon>search</md-icon>
+            <md-input-container md-no-float flex layout>
+                <input ng-model="searchQuery" placeholder="{{'SEARCH' | translate}}" ng-change="search()">
+            </md-input-container>
+        </div>
+    </div>
+</div>
+
+<div layout="row" layout-align="center start" class="main-container">
+    <div class="container">
+        <md-content>
+            <md-list>
+                <div style="padding:16px;">
+                    <div layout="row">
+                        <div class="md-subheader">
+                            {{'EVALUATION' | translate}}
+                        </div>
+                    </div>
+                </div>
+
+                <md-list-item class="md-2-line" ng-repeat="evaluation in evaluations" ng-click="showEvaluation(evaluation.id)">
+                    <img ng-src="http://lorempixel.com/100/100/cats/" class="md-avatar"/>
+
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{ evaluation.name}}</h3>
+                        <p>{{ evaluation.description }}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+            <div ng-if="evaluations.length > 0 && pagination.itemCount > pagination.pageSize">
+                <uib-pagination total-items="pagination.itemCount" ng-change="changePage()" items-per-page="pagination.pageSize" ng-model="pagination.currentPage" max-size="pagination.maxButtons" boundary-links="true" previous-text="<" first-text="<<" next-text=">" last-text=">>"></uib-pagination>
+            </div>
+
+            <md-button class="md-fab fab-bottom-right" aria-label="Add evaluation" ng-click="createEvaluation()">
+                <md-icon>add</md-icon>
+            </md-button>
+        </md-content>
+    </div>
+</div>
